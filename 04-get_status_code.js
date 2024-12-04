@@ -1,7 +1,7 @@
 import { createServer } from 'http'
 
 const server = createServer((request, response) => {
-    if (request.method === 'GET') {
+    if (request.method === 'GET' && request.url.startsWith('/status')) {
         const array = request.url.split('/')
         const statusCode = parseInt(array[2], 10)
         if (isNaN(statusCode)) {
